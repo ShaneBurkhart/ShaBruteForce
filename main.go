@@ -15,7 +15,7 @@ func hash(test []byte, length int){
 
   p := true
 
-  for i := 0 ; i < 4 ; i ++ {
+  for i := 0 ; i < 8 ; i ++ {
     if sha[i] != byte(48) {
       p = false
     }
