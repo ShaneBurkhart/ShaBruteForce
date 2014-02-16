@@ -5,7 +5,7 @@ import (
   "fmt"
   "crypto/sha512"
   "encoding/hex"
-  //"strconv"
+  "strconv"
 )
 
 func hash(test []byte, length int){
