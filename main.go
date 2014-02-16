@@ -1,10 +1,10 @@
 package main
 
-import (
+import (	
+  "os"
   "fmt"
   "crypto/sha512"
   "encoding/hex"
-  "os"
   "strconv"
 )
 
