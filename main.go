@@ -13,21 +13,17 @@ func hash(test []byte, length int){
   hasher.Write(test)
   sha := hex.EncodeToString(hasher.Sum(nil)) 
 
-  p := true
+  i := 0
+  for i = 0 ; sha[i] == byte(48) ; i ++ {}
 
-  for i := 0 ; i < 8 ; i ++ {
-    if sha[i] != byte(48) {
-      p = false
-    }
-  }
 
-  if p {
-    fmt.Println(string(test))
+  if i >= 8 {
+    fmt.Printf("COUNT: %d, %s", i, string(test))
     fmt.Println(sha)
   }
 
   if length < 9 {
-    for i := 33; i < 125 ; i ++ {
+    for i := 100; i < 115 ; i ++ {
       hash(append(test, byte(i)), length + 1)
     }
   }
