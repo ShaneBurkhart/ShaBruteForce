@@ -1,9 +1,11 @@
 package main
 
-import (
+import (	
+  "os"
   "fmt"
   "crypto/sha512"
   "encoding/hex"
+  //"strconv"
 )
 
 func hash(test []byte, length int){
@@ -22,7 +24,7 @@ func hash(test []byte, length int){
     fmt.Println(sha)
   }
 
-  if length < 9 {
+  if length < strconv.Atoi(os.Args[1]) {
     for i := 100; i < 115 ; i ++ {
       hash(append(test, byte(i)), length + 1)
     }
@@ -30,7 +32,7 @@ func hash(test []byte, length int){
 }
 
 func main(){
-  
+  fmt.Println(os.Args[1]) 
   for i := 100; i < 115 ; i ++ {
     hash([]byte{byte(i)} , 1, )
   }
