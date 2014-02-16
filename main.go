@@ -32,9 +32,11 @@ func hash(test []byte, length int, limit int){
 }
 
 func main(){
-  
+
   x, err := strconv.Atoi(os.Args[1])
   
+  fmt.Printf("LIMIT %d\n", x)
+
   if err == nil {
     for i := 33; i < 125 ; i ++ {
       hash([]byte{byte(i)} , 1, x)
