@@ -4,9 +4,11 @@ import (
   "fmt"
   "crypto/sha512"
   "encoding/hex"
+  "os"
+  "strconv"
 )
 
-func hash(test []byte, length int){
+func hash(test []byte, length int, limit int){
 
   hasher := sha512.New()
   hasher.Reset()
@@ -17,22 +19,26 @@ func hash(test []byte, length int){
   for i = 0 ; sha[i] == byte(48) ; i ++ {}
 
 
-  if i >= 8 {
-    fmt.Printf("COUNT: %d, %s", i, string(test))
+  if i >= 10 {
+    fmt.Printf("COUNT: %d, %s\n", i, string(test))
     fmt.Println(sha)
   }
 
-  if length < 9 {
-    for i := 100; i < 115 ; i ++ {
-      hash(append(test, byte(i)), length + 1)
+  if length < limit {
+    for i := 33; i < 125 ; i ++ {
+      hash(append(test, byte(i)), length + 1, limit)
     }
   }
 }
 
 func main(){
   
-  for i := 100; i < 115 ; i ++ {
-    hash([]byte{byte(i)} , 1, )
+  x, err := strconv.Atoi(os.Args[1])
+  
+  if err == nil {
+    for i := 33; i < 125 ; i ++ {
+      hash([]byte{byte(i)} , 1, x)
+    }
   }
 
 }
